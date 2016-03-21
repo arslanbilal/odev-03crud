@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  root to: "pages#home"
-  get 'hakkinda', to: "about", as: :about
-  get 'iletisim', to: "contact", as: :contact
+
+  root to: 'pages#home'
+  get 'about' => 'pages#about'
+  get 'contact' => 'pages#contact'
 
 end
