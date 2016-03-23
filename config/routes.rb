@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  root to: 'pages#home'
+  resources :movies
+  root to: 'movies#index'
+
   get 'about' => 'pages#about'
   get 'contact' => 'pages#contact'
 
