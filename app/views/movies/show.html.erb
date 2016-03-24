@@ -1,6 +1,10 @@
-<%= link_to '<i class="glyphicon glyphicon-chevron-left"></i> Movies'.html_safe, movies_path, class: "btn btn-default btn-sm" %>
+<%= content_for :title do %>
+	<%= @movie.title %>
+<% end %>
 
-<h3 style="color:brown">Movie Details <%= link_to '<i class="glyphicon glyphicon-edit"></i> Edit'.html_safe, edit_movie_path(@movie.id) , class: "btn btn-primary btn-sm" %></h3>
+<%= render "/shared/movies_button" %>
+
+<h3 style="color:brown">Movie Details <%= link_to '<i class="glyphicon glyphicon-edit"></i> Edit'.html_safe, edit_movie_path(@movie) , class: "btn btn-primary btn-sm" %></h3>
 
 <ul class="list-group">
     <li class="list-group-item list-group-item active"> <%= @movie.title %> </li>

@@ -1,3 +1,6 @@
+<%= content_for :title do %>
+	Movie Finder
+<% end %>
 <h3 style="color:brown">Movies <%= link_to '<i class="glyphicon glyphicon-plus"></i> Add Movie'.html_safe, new_movie_path, class: "btn btn-default btn-sm" %> </h3>
 
 <table class="table table-bordered">
@@ -16,7 +19,7 @@
 		<td> <%= movie.date %> </td>
 		<td> <%= movie.director %> </td>
 		<td> <%= link_to '<i class="glyphicon glyphicon-edit"></i> Edit'.html_safe, edit_movie_path(movie.id), class: "btn btn-primary btn-sm" %> </td>
-		<td> <%= link_to '<i class="glyphicon glyphicon-remove"></i> Delete'.html_safe, new_movie_path, class: "btn btn-danger btn-sm" %> </td>
+		<td> <%= link_to '<i class="glyphicon glyphicon-remove"></i> Delete'.html_safe, movie_path(movie), method: :delete, data: {confirm: "Are you sure to delete " + movie.title + "?"} , class: "btn btn-danger btn-sm" %> </td>
 	</tr>
 	<% end %>
 </table>

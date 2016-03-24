@@ -1,3 +1,7 @@
-<%= link_to '<i class="glyphicon glyphicon-chevron-left"></i> Movies'.html_safe, movies_path, class: "btn btn-default btn-sm" %>
+<%= content_for :title do %>
+	Edit: <%= @movie.title %>
+<% end %>
+
+<%= render "/shared/movies_button" %>
 
 <h3 style="color:brown">Edit: <i><%= @movie.title %></i> </h3>

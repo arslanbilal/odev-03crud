@@ -1,3 +1,22 @@
-<%= link_to '<i class="glyphicon glyphicon-chevron-left"></i> Movies'.html_safe, movies_path, class: "btn btn-default btn-sm" %>
+<%= content_for :title do %>
+	Create New Movie
+<% end %>
+
+<%= render "shared/movies_button" %>
 
 <h3 style="color:brown">Add Movie</h3>
+
+<%= form_tag "/movies", :method => :post, :class => "" do %>
+  	<%= label_tag(:title, "Name: *") %>
+  	<input type="text" class="form-control" name="title" id="title" placeholder="Movie Name" aria-describedby="basic-addon1"> <br>
+  	<%= label_tag(:director, "Director: *") %>
+  	<input type="text" class="form-control" name="director" id="director" placeholder="Movie Director" aria-describedby="basic-addon1"> <br>
+  	<%= label_tag(:description, "Description: *") %>
+  	<input type="text" class="form-control" name="description" id="description" placeholder="Movie Description" aria-describedby="basic-addon1"> <br>
+  	<%= label_tag(:country, "Country: *") %>
+  	<input type="text" class="form-control" name="country" id="country" placeholder="Movie Country" aria-describedby="basic-addon1"> <br>
+  	<%= label_tag(:date, "Year: *") %>
+  	<input type="text" class="form-control" name="date" id="date" placeholder="Movie Date" aria-describedby="basic-addon1"> <br>
+  	<input name="commit" type="submit" value="Save" class="btn btn-primary"/>
+<% end %>
+
