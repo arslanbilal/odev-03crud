@@ -4,7 +4,7 @@
 
 <%= render "/shared/movies_button" %>
 
-<h3 style="color:brown">Movie Details <%= link_to '<i class="glyphicon glyphicon-edit"></i> Edit'.html_safe, edit_movie_path(@movie) , class: "btn btn-primary btn-sm" %></h3>
+<h3 style="color:brown">Movie Details <%= render "/shared/edit_button", movie: @movie %> <%= render "/shared/delete_button", movie: @movie %>  </h3>
 
 <ul class="list-group">
     <li class="list-group-item list-group-item active"> <%= @movie.title %> </li>

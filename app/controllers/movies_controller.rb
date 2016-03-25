@@ -16,12 +16,7 @@ class MoviesController < ApplicationController
 
   def create
   	# - 	POST   /movies(.:format)
-    movie = Movie.new
-    movie.title = params[:title]
-    movie.director = params[:director]
-    movie.description = params[:description]
-    movie.country = params[:country]
-    movie.date = params[:date]
+    movie = Movie.create(movie_params(params))
 
     if movie.save
       redirect_to movies_path
@@ -37,12 +32,22 @@ class MoviesController < ApplicationController
 
   def update
   	# PUT    /movies/:id(.:format)
+    movie = Movie.find(params[:id])
+
+    if movie.update(movie_params(params))
+      redirect_to movie_path(movie)
+    else
+      movie = Movie.find(params[:id])
+      redirect_to edit_movie_path(movie), notice: "Can not updated."
+    end
+
   end
     
   def destroy
   	# DELETE /movies/:id(.:format)
     movie = Movie.find(params[:id])
     message = ""
+
     if movie.destroy
       message = " succesfully deleted."
     else
@@ -50,6 +55,11 @@ class MoviesController < ApplicationController
     end
 
     redirect_to movies_path, notice: movie.title + message
+  end
+
+  def movie_params(p) 
+    params = {title: p[:title], director: p[:director], description: p[:description], country: p[:country], date: p[:date]}
+    return params
   end
 
 end

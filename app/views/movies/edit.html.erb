@@ -4,4 +4,18 @@
 
 <%= render "/shared/movies_button" %>
 
-<h3 style="color:brown">Edit: <i><%= @movie.title %></i> </h3>
+<h3 style="color:brown">Edit: <i><%= @movie.title %></i>  <%= render "/shared/delete_button", movie: @movie %></h3>
+
+<%= form_tag movie_path(@movie), :method => :put, :class => "" do %>
+  	<%= label_tag(:title, "Name: *") %>
+  	<input type="text" class="form-control" value="<%= @movie.title %>" name="title" id="title" placeholder="Movie Name" aria-describedby="basic-addon1"> <br>
+  	<%= label_tag(:director, "Director: *") %>
+  	<input type="text" class="form-control" value="<%= @movie.director %>" name="director" id="director" placeholder="Movie Director" aria-describedby="basic-addon1"> <br>
+  	<%= label_tag(:description, "Description: *") %>
+  	<input type="text" class="form-control" value="<%= @movie.description %>" name="description" id="description" placeholder="Movie Description" aria-describedby="basic-addon1"> <br>	
+  	<%= label_tag(:country, "Country: *") %>
+  	<input type="text" class="form-control" value="<%= @movie.country %>" name="country" id="country" placeholder="Movie Country" aria-describedby="basic-addon1"> <br>
+  	<%= label_tag(:date, "Year: *") %>
+  	<input type="text" class="form-control" value="<%= @movie.date %>" name="date" id="date" placeholder="Movie Date" aria-describedby="basic-addon1"> <br>
+  	<input name="commit" type="submit" value="Save" class="btn btn-primary"/>
+<% end %>
