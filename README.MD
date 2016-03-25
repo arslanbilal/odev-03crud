@@ -2,6 +2,10 @@
 
 Bu ödev, [bir önceki ödevde](https://github.com/railsakademi/odev-02rails) yaptığımız Rails projesinin devamıdır. 
 
+## Project is done
+######How does it look like?
+![Gif](https://github.com/arslanbilal/odev-03crud/raw/master/source/project_flow.gif)
+
 ## Yapılması Gerekenler
 
 - `Movie` modeli için;
